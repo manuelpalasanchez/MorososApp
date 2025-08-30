@@ -31,7 +31,7 @@
   </button>
 
   <!-- Contenedor gráfico -->
-  <div class="w-full max-w-3xl bg-white/20 p-4 rounded-xl mb-8 hidden" id="chart-container">
+  <div class="w-full max-w-5xl bg-white/20 p-4 rounded-xl mb-8 hidden" id="chart-container">
     <canvas id="barChart"></canvas>
   </div>
 
@@ -48,102 +48,24 @@
 <script>
 // ===== Datos hardcodeados =====
 const people = [
-  { name: "Jose", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Entrecot", price: 11.53333333 }
-  ]},
-  { name: "FerF", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Entrecot", price: 11.53333333 },
-    { name: "HeladosSidra", price: 7 },
-    { name: "Café", price: 1.285714286 },
-    { name: "Cerveza", price: 2.7 *2}
-  ]},
-  { name: "Fersoto", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Entrecot", price: 11.53333333 },
-    { name: "HeladosSidra", price: 7 },
-    { name: "Café", price: 2.9 },
-    { name: "Vino", price: 2.7 },
-  ]},
-  { name: "Juli", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Entrecot", price: 11.53333333 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Cerveza", price: 2.7*2 }
-  ]},
-  { name: "Estevez", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Café", price: 1.285714286 },
-  ]},
-  { name: "Sergio", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Entrecot", price: 11.53333333 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Café", price: 1.285714286 }
-  ]},
-  { name: "Carlos", items: [
-    { name: "PanAgua", price: 2.908333333 -1.3},
-    { name: "Parrillada", price: 22.7 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "CaféBaileys", price: 2.96 },
-  ]},
-  { name: "Manu", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Entrecot", price: 11.53333333 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Café", price: 1.285714286 }
-  ]},
-  { name: "Davo", items: [
-    
-    { name: "PanAgua", price: 2.908333333 +1.3},
-    { name: "Parrillada", price: 22.7 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "CaféBaileys", price: 2.96 },
-  ]},
-  { name: "Pablo", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Café", price: 1.285714286 }
-  ]},
-  { name: "Maria Junque", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Café", price: 1.285714286 }
-  ]},
-  { name: "Aida", items: [
-    { name: "PanAgua", price: 2.908333333 },
-    { name: "Parrillada", price: 22.7 },
-    { name: "Postres", price: 2.888888889 },
-    { name: "Café", price: 1.285714286 }
-  ]},
-  { name: "Imanol", items: [
-    { name: "Menu", price: 27 }
-  ]},
-  { name: "Nerea", items: [
-    { name: "Menu", price: 27 }
-  ]},
-  { name: "Alba", items: [
-    { name: "Menu", price: 27 }
-  ]},
-  { name: "María Madrid", items: [
-    { name: "Menu", price: 27 }
-  ]},
-  { name: "Elsa", items: [
-    { name: "Menu", price: 27 }
-  ]}
+  { name: "Jose", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Entrecot", price: 11.53333333 }]},
+  { name: "FerF", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Entrecot", price: 11.53333333 }, { name: "HeladosSidra", price: 7 }, { name: "Café", price: 1.285714286 }, { name: "Cerveza", price: 5.4 }]},
+  { name: "Fersoto", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Entrecot", price: 11.53333333 }, { name: "HeladosSidra", price: 7 }, { name: "Café", price: 2.7 }]},
+  { name: "Juli", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Entrecot", price: 11.53333333 }, { name: "Postres", price: 2.888888889 }, { name: "Cerveza", price: 5.4 }]},
+  { name: "Estevez", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Postres", price: 2.888888889 }, { name: "Café", price: 1.285714286 }]},
+  { name: "Sergio", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Entrecot", price: 11.53333333 }, { name: "Postres", price: 2.888888889 }, { name: "Café", price: 1.285714286 }]},
+  { name: "Carlos", items: [{ name: "PanAgua", price: 1.608333333 }, { name: "Parrillada", price: 22.7 }, { name: "Postres", price: 2.888888889 }, { name: "CaféBaileys", price: 2.96 }]},
+  { name: "Manu", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Entrecot", price: 11.53333333 }, { name: "Postres", price: 2.888888889 }, { name: "Café", price: 1.285714286 }]},
+  { name: "Davo", items: [{ name: "PanAgua", price: 4.208333333 }, { name: "Parrillada", price: 22.7 }, { name: "Postres", price: 2.888888889 }, { name: "CaféBaileys", price: 2.96 }]},
+  { name: "Pablo", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Postres", price: 2.888888889 }, { name: "Café", price: 1.285714286 }]},
+  { name: "Maria Junque", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Postres", price: 2.888888889 }, { name: "Café", price: 1.285714286 }]},
+  { name: "Aida", items: [{ name: "PanAgua", price: 2.908333333 }, { name: "Parrillada", price: 22.7 }, { name: "Postres", price: 2.888888889 }, { name: "Café", price: 1.285714286 }]},
+  { name: "Imanol", items: [{ name: "Menu", price: 27 }]},
+  { name: "Nerea", items: [{ name: "Menu", price: 27 }]},
+  { name: "Alba", items: [{ name: "Menu", price: 27 }]},
+  { name: "María Madrid", items: [{ name: "Menu", price: 27 }]},
+  { name: "Elsa", items: [{ name: "Menu", price: 27 }]}
 ];
-
 
 // Calculamos totales
 people.forEach(p => p.total = p.items.reduce((a,b)=>a+b.price,0));
@@ -167,11 +89,11 @@ document.getElementById("modal-close").onclick = ()=> modal.classList.add("hidde
 
 function openModal(person){
   modalName.textContent = person.name;
-  modalTotal.textContent = `¡Debes ${person.total}€! 🎉`;
+  modalTotal.textContent = `¡Debes ${person.total.toFixed(2)}€! 🎉`;
   modalItems.innerHTML = "";
   person.items.forEach(it=>{
     const li = document.createElement("li");
-    li.textContent = `${it.name}: ${it.price}€`;
+    li.textContent = `${it.name}: ${it.price.toFixed(2)}€`;
     modalItems.appendChild(li);
   });
   modal.classList.remove("hidden");
@@ -183,7 +105,39 @@ function openModal(person){
   });
 }
 
-
+// ===== Gráfico de barras =====
+const summaryBtn = document.getElementById("summary-btn");
+const chartContainer = document.getElementById("chart-container");
+let chartInitialized = false;
+summaryBtn.onclick = ()=>{
+  chartContainer.classList.toggle("hidden");
+  if(!chartInitialized){
+    const ctx = document.getElementById('barChart').getContext('2d');
+    // Generar colores automáticos
+    const colors = people.map((_, i) => `hsl(${i * 360 / people.length}, 70%, 60%)`);
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: people.map(p=>p.name),
+        datasets: [{
+          label: 'Total €',
+          data: people.map(p=>p.total),
+          backgroundColor: colors
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+    chartInitialized = true;
+  }
+};
 </script>
 
 </body>
