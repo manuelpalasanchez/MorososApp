@@ -126,14 +126,19 @@ summaryBtn.onclick = ()=>{
         }]
       },
       options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false }
-        },
-        scales: {
-          y: { beginAtZero: true }
-        }
+  responsive: true,
+  plugins: {
+    legend: { display: false },
+  },
+  scales: {
+    x: {
+      ticks: {
+        font: { size: 10 } // más pequeño en móviles
       }
+    },
+    y: { beginAtZero: true }
+  }
+}
     });
     chartInitialized = true;
   }
