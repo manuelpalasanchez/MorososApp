@@ -183,37 +183,7 @@ function openModal(person){
   });
 }
 
-// ===== Gráfico de barras =====
-const summaryBtn = document.getElementById("summary-btn");
-const chartContainer = document.getElementById("chart-container");
-let chartInitialized = false;
-summaryBtn.onclick = ()=>{
-  chartContainer.classList.toggle("hidden");
-  if(!chartInitialized){
-    const ctx = document.getElementById('barChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: people.map(p=>p.name),
-        datasets: [{
-          label: 'Total €',
-          data: people.map(p=>p.total),
-          backgroundColor: ['#FF6B6B','#FFD93D','#6BCB77','#4D96FF','#9D4EDD']
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false }
-        },
-        scales: {
-          y: { beginAtZero: true }
-        }
-      }
-    });
-    chartInitialized = true;
-  }
-};
+
 </script>
 
 </body>
